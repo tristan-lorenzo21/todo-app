@@ -52,7 +52,7 @@ function App() {
 
         <TodoForm addTodo={addTodo} />
         <div className="todo-list">
-          {todos.length > 0 ? todos.map((todo, index) => (
+          {todos != null && todos.length > 0 ? todos.map((todo, index) => (
             <Card style={{ marginTop: "10px" }}>
               <Card.Body>
                 <Todo
