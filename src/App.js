@@ -9,7 +9,10 @@ import TodoForm from "./components/TodoForm";
 
 function App() {
   // const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')));
-  const [todos, setTodos] = useState(['']);
+  const [todos, setTodos] = useState([{
+    text: "Sample todo",
+    isComplete: false
+  }]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
