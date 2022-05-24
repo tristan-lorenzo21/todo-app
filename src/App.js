@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
-import React, { useEffect, useState } from "react";
-// import React, { useState } from "react";
+// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './App.css';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,25 +8,20 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 
 function App() {
-  const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
-  // const [todos, setTodos] = useState([{
-  //   text: "Sample todo",
-  //   isComplete: false
-  // }]);
-
-  useEffect(() => {
-    if (localStorage.getItem('todos') === null) {
-      setTodos([{
-        text: "Sample todo",
-        isComplete: false
-      }])
-    }
-  }, [todos]);
+  // const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
+  const [todos, setTodos] = useState([{
+    text: "Sample todo",
+    isComplete: false
+  }]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
+
+  const editTodo = (index) => {
+    console.log(index);
+  }
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
@@ -40,21 +35,21 @@ function App() {
     setTodos(newTodos);
   };
 
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+  // useEffect(() => {
+  //   const storedTodos = JSON.parse(localStorage.getItem("todos"));
 
-    if (storedTodos) {
-      setTodos(storedTodos);
-    }
+  //   if (storedTodos) {
+  //     setTodos(storedTodos);
+  //   }
 
-    setTodos(storedTodos);
+  //   setTodos(storedTodos);
 
-    console.log(storedTodos);
-  }, []);
+  //   console.log(storedTodos);
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  // useEffect(() => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // }, [todos]);
 
   return (
     <div className="app">
@@ -75,6 +70,7 @@ function App() {
                   todo={todo}
                   completeTodo={completeTodo}
                   removeTodo={removeTodo}
+                  editTodo={editTodo}
                 />
               </Card.Body>
             </Card>
