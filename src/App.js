@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 // import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
 import './App.css';
@@ -8,7 +7,9 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 
 function App() {
+  //state variable that pulls data from local storage
   // const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
+
   const [todos, setTodos] = useState([{
     text: "Sample todo",
     isComplete: false
@@ -18,10 +19,6 @@ function App() {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
-
-  const editTodo = (index) => {
-    console.log(index);
-  }
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
@@ -35,6 +32,7 @@ function App() {
     setTodos(newTodos);
   };
 
+  //code that allows the app to persist data in local storage
   // useEffect(() => {
   //   const storedTodos = JSON.parse(localStorage.getItem("todos"));
 
@@ -70,7 +68,6 @@ function App() {
                   todo={todo}
                   completeTodo={completeTodo}
                   removeTodo={removeTodo}
-                  editTodo={editTodo}
                 />
               </Card.Body>
             </Card>
