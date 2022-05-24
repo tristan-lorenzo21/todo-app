@@ -8,7 +8,7 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 
 function App() {
-  const [todos, setTodos] = useContext(JSON.parse(localStorage.getItem('todos')));
+  const [todos, setTodos] = useState([JSON.parse(localStorage.getItem('todos'))]);
   // const [todos, setTodos] = useState([{
   //   text: "Sample todo",
   //   isComplete: false
