@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 // import React, { useState } from "react";
 import './App.css';
 import { Card } from 'react-bootstrap';
@@ -8,7 +8,7 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 
 function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')));
+  const [todos, setTodos] = useContext(JSON.parse(localStorage.getItem('todos')));
   // const [todos, setTodos] = useState([{
   //   text: "Sample todo",
   //   isComplete: false
