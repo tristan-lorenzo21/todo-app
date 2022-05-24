@@ -14,6 +14,15 @@ function App() {
   //   isComplete: false
   // }]);
 
+  useEffect(() => {
+    if (localStorage.getItem('todos') === null) {
+      setTodos([{
+        text: "Sample todo",
+        isComplete: false
+      }])
+    }
+  }, [todos]);
+
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
