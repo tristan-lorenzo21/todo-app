@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import React, { useState } from "react";
 import './App.css';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,16 +7,7 @@ import TodoForm from "./components/TodoForm";
 import Alert from "@mui/material/Alert";
 
 function App() {
-  //state variable that pulls data from local storage
-  // let initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
-
-  // const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [""]);
-
-  // const [todos, setTodos] = useState([{
-  //   text: "Sample todo",
-  //   isComplete: false
-  // }]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -44,8 +34,6 @@ function App() {
     } else {
       setTodos([]);
     }
-
-    // setTodos(storedTodos);
 
     console.log(storedTodos);
   }, []);
