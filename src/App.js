@@ -1,5 +1,5 @@
-// import React, { useEffect, useState } from "react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// import React, { useState } from "react";
 import './App.css';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,12 +9,12 @@ import Alert from "@mui/material/Alert";
 
 function App() {
   //state variable that pulls data from local storage
-  // const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
+  const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
 
-  const [todos, setTodos] = useState([{
-    text: "Sample todo",
-    isComplete: false
-  }]);
+  // const [todos, setTodos] = useState([{
+  //   text: "Sample todo",
+  //   isComplete: false
+  // }]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -33,22 +33,21 @@ function App() {
     setTodos(newTodos);
   };
 
-  //code that allows the app to persist data in local storage
-  // useEffect(() => {
-  //   const storedTodos = JSON.parse(localStorage.getItem("todos"));
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
 
-  //   if (storedTodos) {
-  //     setTodos(storedTodos);
-  //   }
+    if (storedTodos) {
+      setTodos(storedTodos);
+    }
 
-  //   setTodos(storedTodos);
+    setTodos(storedTodos);
 
-  //   console.log(storedTodos);
-  // }, []);
+    console.log(storedTodos);
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("todos", JSON.stringify(todos));
-  // }, [todos]);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="app">
@@ -61,7 +60,7 @@ function App() {
         <TodoForm addTodo={addTodo} />
         <div className="todo-list">
           {todos != null && todos.length > 0 ? todos.map((todo, index) => (
-            <Card style={{ marginTop: "10px" }}>
+            <Card style={{ marginTop: "10px" }} key={index}>
               <Card.Body>
                 <Todo
                   key={index}
