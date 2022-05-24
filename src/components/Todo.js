@@ -7,7 +7,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
     return (
         <div className="todo" >
             <Checkbox color="success" onClick={() => completeTodo(index)} />
-            <span style={{ textDecoration: todo.isComplete ? "line-through" : "", textAlign: "left", maxWidth: "200px" }}>{todo.text}</span>
+            <span style={{ textDecoration: todo.isComplete ? "line-through" : "", color: todo.isComplete ? "gray" : "black", textAlign: "left", maxWidth: "200px" }}>{todo.text}</span>
             <div>
                 <Button variant="outline-danger" onClick={() => removeTodo(index)} style={{ marginRight: "10px" }}>✕</Button>
             </div>
