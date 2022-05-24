@@ -9,10 +9,10 @@ import Alert from "@mui/material/Alert";
 
 function App() {
   //state variable that pulls data from local storage
-  let initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  // let initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
 
   // const [todos, setTodos] = useState([...JSON.parse(localStorage.getItem('todos'))]);
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [""]);
 
   // const [todos, setTodos] = useState([{
   //   text: "Sample todo",
@@ -41,9 +41,11 @@ function App() {
 
     if (storedTodos) {
       setTodos(storedTodos);
+    } else {
+      setTodos([]);
     }
 
-    setTodos(storedTodos);
+    // setTodos(storedTodos);
 
     console.log(storedTodos);
   }, []);
