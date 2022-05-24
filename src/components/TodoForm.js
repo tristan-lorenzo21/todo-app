@@ -21,7 +21,7 @@ function TodoForm({ addTodo }) {
         <form onSubmit={handleSubmit}>
             <Grid container>
                 <Grid item>
-                    <TextField fullWidth id="outlined-basic" label="Outlined" variant="outlined" value={value} onChange={e => setValue(e.target.value)} placeholder="Add todo" style={{ width: "100%" }} autoFocus />
+                    <TextField fullWidth id="outlined-basic" label="Add todo" variant="outlined" value={value} onChange={e => setValue(e.target.value)} style={{ width: "100%" }} autoFocus />
                 </Grid>
                 <Grid item alignItems="stretch" style={{ display: "flex", maxWidth: "100%" }} >
                     <Fab color="primary" type="submit" style={{ marginLeft: "10px", fontSize: "25px", transform: "scale(0.8)" }}>+</Fab>
