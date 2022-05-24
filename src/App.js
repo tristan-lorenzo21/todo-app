@@ -5,6 +5,7 @@ import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
+import Alert from "@mui/material/Alert";
 
 function App() {
   //state variable that pulls data from local storage
@@ -71,7 +72,7 @@ function App() {
                 />
               </Card.Body>
             </Card>
-          )) : <div> No todos </div>}
+          )) : <Alert severity="info" style={{ marginTop: "15px" }}>No todos yet!</Alert>}
         </div>
       </div>
     </div>
